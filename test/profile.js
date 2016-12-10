@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 require('babel-register');
-const Profile = require('../').default;
+const Profile = require('../index').default;
 
 describe('Profile', () => {
 	const attr = (name, value, options) => ({name, value, options: options || {}});
