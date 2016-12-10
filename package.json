@@ -1,0 +1,38 @@
+{
+  "name": "@emmetio/output-profile",
+  "version": "0.0.1",
+  "description": "Utility class for Emmet abbreviation output options",
+  "main": "dist/output-profile.cjs.js",
+  "jsnext:main": "dist/output-profile.es.js",
+  "scripts": {
+    "test": "mocha",
+	"build": "npm run build:cjs && npm run build:es",
+    "build:cjs": "rollup -o dist/output-profile.cjs.js -f cjs ./index.js",
+    "build:es": "rollup -o dist/output-profile.es.js -f es ./index.js",
+    "prepublish": "npm run test && npm run build",
+    "watch": "rollup -w -o dist/output-profile.cjs.js -f cjs ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmetio/html-formatter.git"
+  },
+  "keywords": [
+    "emmet",
+    "output",
+    "html",
+	"format"
+  ],
+  "author": "Sergey Chikuyonok <serge.che@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emmetio/html-formatter/issues"
+  },
+  "homepage": "https://github.com/emmetio/html-formatter#readme",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "mocha": "^3.2.0",
+	"rollup": "^0.36.3",
+    "rollup-watch": "^2.5.0"
+  }
+}
