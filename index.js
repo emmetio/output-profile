@@ -33,9 +33,10 @@ export default class Profile {
 	/**
 	 * Outputs either full attribute or attribute name accoding to current settings
 	 * @param {Attribute|String} Attribute node or attribute name
+     * @param {String} [sep] Name and value separator (default is `=`)
 	 * @return {String}
 	 */
-    attribute(attr) {
+    attribute(attr, sep) {
 		if (typeof attr === 'string') {
 			return strcase(attr, this.options.attributeCase);
 		}
@@ -44,15 +45,16 @@ export default class Profile {
 			return '';
 		}
 
+        sep = sep || '=';
 		const attrName = this.attribute(attr.name);
 
         if (this.isBooleanAttribute(attr)) {
 			return this.options.compactBooleanAttributes
 				? attrName
-				: `${attrName}=${this.quote(attrName)}`
+				: `${attrName}${sep}${this.quote(attrName)}`
 		}
 
-		return `${attrName}=${this.quote(attr.value)}`;
+		return `${attrName}${sep}${this.quote(attr.value)}`;
     }
 
     /**
@@ -94,12 +96,12 @@ export default class Profile {
 
 	/**
 	 * Check if given tag name belongs to inline-level element
-	 * @param {Node|String} name Parsed node or tag name
+	 * @param {Node|String} node Parsed node or tag name
 	 * @return {Boolean}
 	 */
-	isInline(name) {
-        if (typeof name === 'string') {
-            return this.options.inlineElements.has(name.toLowerCase());
+	isInline(node) {
+        if (typeof node === 'string') {
+            return this.options.inlineElements.has(node.toLowerCase());
         }
 
         // inline node is a node either with inline-level name or text-only node

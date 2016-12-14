@@ -44,15 +44,15 @@ export default {
 
     /**
      * A list of tag names that should not get inner indentation
-     * @type {Array}
+     * @type {Set}
      */
-    formatSkip: ['html'],
+    formatSkip: new Set(['html']),
 
     /**
      * A list of tag names that should *always* get inner indentation.
-     * @type {Array}
+     * @type {Set}
      */
-    formatForce: ['body'],
+    formatForce: new Set(['body']),
 
 	/**
 	 * How many inline sibling elements should force line break for each tag
@@ -82,7 +82,7 @@ export default {
      * 'xhtml' – <br />
      * @type {String}
      */
-	selfClosingStyle: 'xhtml',
+	selfClosingStyle: 'html',
 
 	/**
 	 * A set of inline-level elements
