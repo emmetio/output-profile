@@ -94,11 +94,16 @@ export default class Profile {
 
 	/**
 	 * Check if given tag name belongs to inline-level element
-	 * @param {String} name Tag name
+	 * @param {Node|String} name Parsed node or tag name
 	 * @return {Boolean}
 	 */
 	isInline(name) {
-		return this.options.inlineElements.has(name.toLowerCase());
+        if (typeof name === 'string') {
+            return this.options.inlineElements.has(name.toLowerCase());
+        }
+
+        // inline node is a node either with inline-level name or text-only node
+        return node.name != null ? this.isInline(node.name) : node.isTextOnly;
 	}
 };
 
