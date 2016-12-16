@@ -31,30 +31,12 @@ export default class Profile {
     }
 
 	/**
-	 * Outputs either full attribute or attribute name accoding to current settings
-	 * @param {Attribute|String} Attribute node or attribute name
-     * @param {String} [sep] Name and value separator (default is `=`)
+	 * Outputs attribute name accoding to current settings
+	 * @param {String} Attribute name
 	 * @return {String}
 	 */
-    attribute(attr, sep) {
-		if (typeof attr === 'string') {
-			return strcase(attr, this.options.attributeCase);
-		}
-
-		if (attr.options.implied && attr.value == null) {
-			return '';
-		}
-
-        sep = sep || '=';
-		const attrName = this.attribute(attr.name);
-
-        if (this.isBooleanAttribute(attr)) {
-			return this.options.compactBooleanAttributes
-				? attrName
-				: `${attrName}${sep}${this.quote(attrName)}`
-		}
-
-		return `${attrName}${sep}${this.quote(attr.value)}`;
+    attribute(attr) {
+        return strcase(attr, this.options.attributeCase);
     }
 
     /**
@@ -106,6 +88,16 @@ export default class Profile {
 
         // inline node is a node either with inline-level name or text-only node
         return node.name != null ? this.isInline(node.name) : node.isTextOnly;
+	}
+
+	/**
+	 * Outputs formatted field for given params
+	 * @param {Number} index Field index
+	 * @param {String} [placeholder] Field placeholder, can be empty
+	 * @return {String}
+	 */
+	field(index, placeholder) {
+		return this.options.field(index, placeholder);
 	}
 };
 

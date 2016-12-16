@@ -35,45 +35,6 @@ describe('Profile', () => {
 		assert.equal(profile.attribute('bAr'), 'bar');
 	});
 
-	it('full attribute', () => {
-		let profile = new Profile({
-			attributeCase: '',
-			attributeQuote: 'double'
-		});
-		assert.equal(profile.attribute(attr('foo', 'bar')), 'foo="bar"');
-		assert.equal(profile.attribute(attr('Foo', 'bAr')), 'Foo="bAr"');
-		assert.equal(profile.attribute(attr('foo', null)), 'foo=""');
-	});
-
-	it('boolean attributes', () => {
-		let profile = new Profile({
-			attributeCase: 'lower',
-			attributeQuote: 'double',
-			compactBooleanAttributes: false
-		});
-
-		assert.equal(profile.attribute(attr('foo', null, {boolean: true})), 'foo="foo"');
-
-		profile = new Profile({
-			attributeCase: 'lower',
-			attributeQuote: 'double',
-			compactBooleanAttributes: true
-		});
-
-		assert.equal(profile.attribute(attr('foo', null, {boolean: true})), 'foo');
-	});
-
-	it('implied attributes', () => {
-		let profile = new Profile({
-			attributeCase: 'lower',
-			attributeQuote: 'double'
-		});
-
-		assert.equal(profile.attribute(attr('foo', null, {implied: true})), '');
-		assert.equal(profile.attribute(attr('foo', '', {implied: true})), 'foo=""');
-		assert.equal(profile.attribute(attr('foo', 'bar', {implied: true})), 'foo="bar"');
-	});
-
 	it('self close', () => {
 		let profile = new Profile({selfClosingStyle: 'html'});
 		assert.equal(profile.selfClose(), '');
