@@ -12,6 +12,15 @@ export default class Profile {
         this.quoteChar = this.options.attributeQuotes === 'single' ? '\'' : '"';
     }
 
+	/**
+	 * Returns value of given option name
+	 * @param {String} name
+	 * @return {*}
+	 */
+	get(name) {
+		return this.options[name];
+	}
+
     /**
      * Quote given string according to profile
      * @param {String} str String to quote

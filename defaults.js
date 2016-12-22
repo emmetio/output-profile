@@ -32,17 +32,6 @@ export default {
 	format: true,
 
     /**
-     * Output each tag on new line: `true`, `false` or 'guess' to decide depending
- 	 * on tag type (inline- or block-level)
-     * @type {Boolean|String}
-     */
-    formatTagNewline: 'guess',
-
-	// With `formatTagNewline` === `true`, defines if leaf node (e.g. node with no children)
-	// should have formatted line breaks
-	formatTagNewlineLeaf: false,
-
-    /**
      * A list of tag names that should not get inner indentation
      * @type {Set}
      */
@@ -55,8 +44,9 @@ export default {
     formatForce: new Set(['body']),
 
 	/**
-	 * How many inline sibling elements should force line break for each tag
- 	 * (set to 0 to disable)
+	 * How many inline sibling elements should force line break for each tag.
+	 * Set to 0 to output all inline elements without formatting.
+	 * Set to 1 to output all inline elements with formatting (same as block-level).
 	 * @type {Number}
 	 */
 	inlineBreak: 3,
