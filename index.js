@@ -55,7 +55,7 @@ export default class Profile {
      */
     isBooleanAttribute(attr) {
         return attr.options.boolean
-			|| this.get('booleanAttributes').includes((attr.name || '').toLowerCase());
+			|| this.get('booleanAttributes').indexOf((attr.name || '').toLowerCase()) !== -1;
     }
 
 	/**
@@ -92,7 +92,7 @@ export default class Profile {
 	 */
 	isInline(node) {
         if (typeof node === 'string') {
-            return this.get('inlineElements').includes(node.toLowerCase());
+            return this.get('inlineElements').indexOf(node.toLowerCase()) !== -1;
         }
 
         // inline node is a node either with inline-level name or text-only node
