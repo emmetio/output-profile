@@ -35,13 +35,13 @@ export default {
      * A list of tag names that should not get inner indentation
      * @type {Set}
      */
-    formatSkip: new Set(['html']),
+    formatSkip: ['html'],
 
     /**
      * A list of tag names that should *always* get inner indentation.
      * @type {Set}
      */
-    formatForce: new Set(['body']),
+    formatForce: ['body'],
 
 	/**
 	 * How many inline sibling elements should force line break for each tag.
@@ -63,7 +63,10 @@ export default {
 	 * A set of boolean attributes
 	 * @type {Set}
 	 */
-	booleanAttributes: new Set('contenteditable,seamless,async,autofocus,autoplay,checked,controls,defer,disabled,formnovalidate,hidden,ismap,loop,multiple,muted,novalidate,readonly,required,reversed,selected,typemustmatch'.split(',')),
+	booleanAttributes: ['contenteditable', 'seamless', 'async', 'autofocus',
+        'autoplay', 'checked', 'controls', 'defer', 'disabled', 'formnovalidate',
+        'hidden', 'ismap', 'loop', 'multiple', 'muted', 'novalidate', 'readonly',
+        'required', 'reversed', 'selected', 'typemustmatch'],
 
     /**
      * Style of self-closing tags:
@@ -78,7 +81,11 @@ export default {
 	 * A set of inline-level elements
 	 * @type {Set}
 	 */
-	inlineElements: new Set('a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,select,small,span,strike,strong,sub,sup,textarea,tt,u,var'.split(',')),
+	inlineElements: ['a', 'abbr', 'acronym', 'applet', 'b', 'basefont', 'bdo',
+        'big', 'br', 'button', 'cite', 'code', 'del', 'dfn', 'em', 'font', 'i',
+        'iframe', 'img', 'input', 'ins', 'kbd', 'label', 'map', 'object', 'q',
+        's', 'samp', 'select', 'small', 'span', 'strike', 'strong', 'sub', 'sup',
+        'textarea', 'tt', 'u', 'var'],
 
     /**
      * Factory function for fields (aka tabstops) in output. Most editors
