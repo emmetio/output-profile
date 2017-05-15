@@ -1,6 +1,6 @@
 {
   "name": "@emmetio/output-profile",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Utility class for Emmet abbreviation output options",
   "main": "dist/output-profile.cjs.js",
   "module": "dist/output-profile.es.js",
