@@ -4,7 +4,6 @@
   "description": "Utility class for Emmet abbreviation output options",
   "main": "dist/output-profile.cjs.js",
   "module": "dist/output-profile.es.js",
-  "types": "types.d.ts",
   "scripts": {
     "test": "mocha",
     "build": "rollup -c",
